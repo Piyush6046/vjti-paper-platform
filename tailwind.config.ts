@@ -61,7 +61,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        vjti: {
+          primary: '#003366',     // Navy blue
+          secondary: '#FFD700',   // Gold
+          accent: '#1E88E5',      // Bright blue
+          light: '#F5F7FA',       // Light background
+          dark: '#1A2332',        // Dark text
+          success: '#4CAF50',     // Green for success states
+          warning: '#FF9800',     // Orange for warnings
+          error: '#F44336'        // Red for errors
+        }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
