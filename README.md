@@ -1,73 +1,127 @@
-# Welcome to your Lovable project
 
-## Project info
+# VJTI Exams Platform
 
-**URL**: https://lovable.dev/projects/8f6b93b8-8849-43a3-aa28-9ee031b2dcd4
+A platform for VJTI students to share and download previous years' exam papers, sell/buy books, and discuss academic topics.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- User authentication (register/login)
+- Upload and download exam papers
+- Filter papers by branch, semester, and year
+- Rate and review papers
+- Report inappropriate content
+- Community discussion forum
+- Buy/sell textbooks
+- User profile management
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8f6b93b8-8849-43a3-aa28-9ee031b2dcd4) and start prompting.
+- **Frontend**: React, TypeScript, Tailwind CSS, Shadcn UI
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: JWT
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js (v14 or higher)
+- npm or yarn
+- MongoDB database (local or Atlas)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/vjti-exams.git
+   cd vjti-exams
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. Install frontend dependencies
+   ```bash
+   npm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. Install backend dependencies
+   ```bash
+   cd server
+   npm install
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. Set up environment variables
+   - Copy `.env.example` to `.env` in the project root
+   - Update the values with your MongoDB connection string, JWT secret, etc.
+   ```bash
+   cp .env.example .env
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+5. Start the backend server
+   ```bash
+   cd server
+   npm run dev
+   ```
+
+6. Start the frontend development server
+   ```bash
+   # From the project root
+   npm run dev
+   ```
+
+7. Navigate to `http://localhost:8080` in your browser
+
+## Project Structure
+
+```
+vjti-exams/
+├── public/            # Static assets
+├── server/            # Backend code
+│   ├── models/        # MongoDB schemas
+│   ├── uploads/       # Uploaded files
+│   └── index.js       # Server entry point
+├── src/               # Frontend code
+│   ├── components/    # React components
+│   ├── contexts/      # React contexts
+│   ├── hooks/         # Custom hooks
+│   ├── lib/           # Utility functions
+│   ├── pages/         # Page components
+│   └── types/         # TypeScript type definitions
+└── .env               # Environment variables
 ```
 
-**Edit a file directly in GitHub**
+## API Endpoints
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Authentication
+- `POST /api/register` - Register a new user
+- `POST /api/login` - Login user
 
-**Use GitHub Codespaces**
+### User
+- `GET /api/users/:id` - Get user profile
+- `PUT /api/users/:id` - Update user profile
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Papers
+- `GET /api/papers` - Get all papers (with filters)
+- `GET /api/papers/:id` - Get paper by ID
+- `GET /api/papers/user/:userId` - Get papers by user
+- `POST /api/papers` - Upload a new paper
+- `POST /api/papers/:id/download` - Increment download count
 
-## What technologies are used for this project?
+### Reviews
+- `GET /api/papers/:id/reviews` - Get reviews for a paper
+- `POST /api/papers/:id/reviews` - Add a review for a paper
 
-This project is built with:
+### Reports
+- `POST /api/papers/:id/report` - Report a paper
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Books
+- `GET /api/books` - Get all books for sale
+- `GET /api/books/user/:userId` - Get books listed by user
+- `POST /api/books` - List a book for sale
+- `PUT /api/books/:id/sold` - Mark a book as sold
 
-## How can I deploy this project?
+### Messages
+- `GET /api/messages` - Get community chat messages
+- `POST /api/messages` - Post a message to community chat
 
-Simply open [Lovable](https://lovable.dev/projects/8f6b93b8-8849-43a3-aa28-9ee031b2dcd4) and click on Share -> Publish.
+## License
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License.

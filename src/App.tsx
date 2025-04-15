@@ -16,6 +16,7 @@ import Upload from "./pages/Upload";
 import Community from "./pages/Community";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import Books from "./pages/Books";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/upload" element={<Upload />} />
             <Route path="/community" element={<Community />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/books" element={<Books />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

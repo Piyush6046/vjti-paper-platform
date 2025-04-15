@@ -4,6 +4,9 @@ export interface User {
   name: string;
   email: string;
   avatar?: string;
+  branch?: Branch;
+  year?: Year;
+  bio?: string;
 }
 
 export interface Paper {
@@ -19,6 +22,19 @@ export interface Paper {
   rating: number;
   reviewCount: number;
   downloadCount: number;
+}
+
+export interface Book {
+  id: string;
+  title: string;
+  author: string;
+  price: number;
+  condition: "new" | "like-new" | "good" | "fair" | "poor";
+  description: string;
+  imageUrl?: string;
+  listedBy: User;
+  listedDate: Date;
+  sold: boolean;
 }
 
 export interface Review {
