@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +14,7 @@ import Papers from "./pages/Papers";
 import PaperDetail from "./pages/PaperDetail";
 import Upload from "./pages/Upload";
 import Community from "./pages/Community";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +34,7 @@ const App = () => (
             <Route path="/papers/:id" element={<PaperDetail />} />
             <Route path="/upload" element={<Upload />} />
             <Route path="/community" element={<Community />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
